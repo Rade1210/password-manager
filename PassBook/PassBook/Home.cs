@@ -58,5 +58,19 @@ namespace PassBook
             frm.Show();
             
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void closeAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form[] child = this.MdiChildren;
+            foreach(Form f in child)
+            {
+                f.Close();
+            }
+        }
     }
 }

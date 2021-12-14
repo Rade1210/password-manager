@@ -19,7 +19,6 @@ namespace PassBook
                 string str = "server=localhost;User Id=Rade;pwd=875254Broj#;database=passbook";
                 con = new MySqlConnection(str);
                 con.Open();
-                MessageBox.Show("Connection successful");
             }
             catch(Exception ex)
             {
