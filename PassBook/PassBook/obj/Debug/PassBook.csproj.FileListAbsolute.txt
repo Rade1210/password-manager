@@ -1,6 +1,5 @@
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.csproj.AssemblyReference.cache
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.exe.config
-C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Form1.resources
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Properties.Resources.resources
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.csproj.GenerateResource.cache
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.csproj.CoreCompileInputs.cache
@@ -21,3 +20,4 @@ C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\bin\Debug\MySql.Data.xml
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.exe
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.pdb
+C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Form1.resources
