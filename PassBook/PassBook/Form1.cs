@@ -15,6 +15,11 @@ namespace PassBook
         public Form1()
         {
             InitializeComponent();
+
         }
+
+        config o = new config();
+
+
     }
 }
