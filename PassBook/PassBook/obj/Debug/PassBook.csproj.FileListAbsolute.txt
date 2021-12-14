@@ -19,6 +19,5 @@ C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\bin\Debug\K4os.Hash.xxHash.dll
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\bin\Debug\MySql.Data.xml
-C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.csproj.CopyComplete
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.exe
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.pdb
