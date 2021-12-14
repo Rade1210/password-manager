@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,32 @@ namespace PassBook
                 errorProvider1.SetError(tbUsername, "Enter the username");
                 tbUsername.Focus();
                 return;
+            }
+            if (string.IsNullOrEmpty(tbPassword.Text))
+            {
+                errorProvider1.SetError(tbPassword, "Enter the password");
+                tbPassword.Focus();
+                return;
+            }
+            string uname = MySqlHelper.EscapeString(tbUsername.Text);
+            string upass = MySqlHelper.EscapeString(tbPassword.Text);
+
+            string sql = "select * from admin_logs where UNAME='"+ uname +"' and UPASS='"+ upass +"'";
+
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, o.con);
+
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count == 1)
+            {
+                this.Hide();
+                Home frm = new Home();
+                frm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                tbUsername.Focus();
             }
         }
     }

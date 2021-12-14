@@ -128,6 +128,7 @@ namespace PassBook
             // 
             // Form1
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(548, 383);
             this.Controls.Add(this.groupBox1);
