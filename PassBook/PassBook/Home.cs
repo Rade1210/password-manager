@@ -27,5 +27,36 @@ namespace PassBook
         {
             lblDate.Text = DateTime.Now.ToString("HH:mm:ss tt");
         }
+
+        private void ledgersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(Form f in Application.OpenForms)
+            {
+                if(f.GetType() == typeof(Ledger))
+                {
+                    f.Activate();
+                    return;
+                }
+            }
+            Ledger frm = new Ledger();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void transactionDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.GetType() == typeof(Transaction))
+                {
+                    f.Activate();
+                    return;
+                }
+            }
+            Transaction frm = new Transaction();
+            frm.MdiParent = this;
+            frm.Show();
+            
+        }
     }
 }

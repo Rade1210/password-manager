@@ -74,14 +74,16 @@ namespace PassBook
             // ledgersToolStripMenuItem
             // 
             this.ledgersToolStripMenuItem.Name = "ledgersToolStripMenuItem";
-            this.ledgersToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.ledgersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ledgersToolStripMenuItem.Text = "Ledgers";
+            this.ledgersToolStripMenuItem.Click += new System.EventHandler(this.ledgersToolStripMenuItem_Click);
             // 
             // transactionDetailsToolStripMenuItem
             // 
             this.transactionDetailsToolStripMenuItem.Name = "transactionDetailsToolStripMenuItem";
-            this.transactionDetailsToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.transactionDetailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.transactionDetailsToolStripMenuItem.Text = "Transaction Details";
+            this.transactionDetailsToolStripMenuItem.Click += new System.EventHandler(this.transactionDetailsToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -118,6 +120,7 @@ namespace PassBook
             this.IsMdiContainer = true;
             this.Name = "Home";
             this.Text = "Password Management System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
