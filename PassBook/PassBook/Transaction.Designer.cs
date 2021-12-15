@@ -115,6 +115,7 @@ namespace PassBook
             this.btnDeleteTransaction.TabIndex = 34;
             this.btnDeleteTransaction.Text = "Delete";
             this.btnDeleteTransaction.UseVisualStyleBackColor = true;
+            this.btnDeleteTransaction.Click += new System.EventHandler(this.btnDeleteTransaction_Click);
             // 
             // btnClearTransaction
             // 
@@ -142,6 +143,7 @@ namespace PassBook
             this.tbSearchTransaction.Name = "tbSearchTransaction";
             this.tbSearchTransaction.Size = new System.Drawing.Size(100, 25);
             this.tbSearchTransaction.TabIndex = 31;
+            this.tbSearchTransaction.TextChanged += new System.EventHandler(this.tbSearchTransaction_TextChanged);
             // 
             // label8
             // 
@@ -291,6 +293,7 @@ namespace PassBook
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(816, 165);
             this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_RowHeaderMouseDoubleClick);
             // 
             // errorProviderTransaction
             // 

@@ -122,12 +122,90 @@ namespace PassBook
                     "LID='" + lid + "', TRANS_TYPE='" + trans_type + "',DESCRIPTION_TEXT='" + description +
                     "',TRANS_DETAILS='" + trans_details + "', CR='" + cr + "',DR='" + dr + "' where TID='" + tid + "'";
                 }
-                o.con.Open();
                 MySqlCommand cmd = new MySqlCommand(sql, o.con);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Transaction details added sucessfully");
                 loadgrid();
+                btnClearTransaction_Click(sender, e);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if(o.con.State == ConnectionState.Open)
+                {
+                    o.con.Close();
+                }
+            }
+        }
 
+        private void dataGridView2_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex != -1)
+            {
+                tbTID.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                cbLedger.Text = dataGridView2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cbTransType.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dtpTransaction.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                cbTransType.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                tbDescription.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                tbTransactionDetails.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+
+                if (dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString() == "0")
+                {
+                    tbAmount.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
+                }
+
+                else
+                {
+                    tbAmount.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
+                }
+            }
+        }
+
+        private void tbSearchTransaction_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtTrans);
+            dv.RowFilter = "LNAME like '%" + tbSearchTransaction.Text + "%' or TRANS_DETAILS like '%"
+            + tbSearchTransaction.Text + "%'";
+            dataGridView2.DataSource = dv;
+        }
+
+        private void btnDeleteTransaction_Click(object sender, EventArgs e)
+        {
+            if(tbTID.Text != "0")
+            {
+                if(MessageBox.Show("Are you sure you want to Delete?", "Delete", MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    try
+                    {
+                        string tid = MySqlHelper.EscapeString(tbTID.Text);
+                        string sql = "delete from bank_transaction where TID='" + tid + "'";
+                        MySqlCommand cmd = new MySqlCommand(sql, o.con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Bank transaction detail deleted sucessfully");
+                        loadgrid();
+                        btnClearTransaction_Click(sender, e);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if(o.con.State == ConnectionState.Open)
+                        {
+                            o.con.Close();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a record to delete");
             }
         }
     }
