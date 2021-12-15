@@ -42,6 +42,7 @@ namespace PassBook
             this.lblDate = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblWelcome = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +59,8 @@ namespace PassBook
             this.reportsToolStripMenuItem,
             this.windowsToolStripMenuItem,
             this.exitToolStripMenuItem,
-            this.lblDate});
+            this.lblDate,
+            this.lblWelcome});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.windowsToolStripMenuItem;
             this.menuStrip1.Name = "menuStrip1";
@@ -111,8 +113,9 @@ namespace PassBook
             // lblDate
             // 
             this.lblDate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(61, 20);
+            this.lblDate.Size = new System.Drawing.Size(67, 20);
             this.lblDate.Text = "00:00:00";
             // 
             // windowsToolStripMenuItem
@@ -129,6 +132,14 @@ namespace PassBook
             this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.closeAllToolStripMenuItem.Text = "Close All";
             this.closeAllToolStripMenuItem.Click += new System.EventHandler(this.closeAllToolStripMenuItem_Click);
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(72, 20);
+            this.lblWelcome.Text = "Welcome";
             // 
             // Home
             // 
@@ -161,5 +172,6 @@ namespace PassBook
         private System.Windows.Forms.ToolStripMenuItem lblDate;
         private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lblWelcome;
     }
 }

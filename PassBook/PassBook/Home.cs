@@ -12,9 +12,10 @@ namespace PassBook
 {
     public partial class Home : Form
     {
-        public Home()
+        public Home(string name)
         {
             InitializeComponent();
+            lblWelcome.Text = "Welcome " + name;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -56,7 +56,7 @@ namespace PassBook
             if (dt.Rows.Count == 1)
             {
                 this.Hide();
-                Home frm = new Home();
+                Home frm = new Home(dt.Rows[0][1].ToString());
                 frm.Show();
             }
             else
@@ -64,6 +64,8 @@ namespace PassBook
                 MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 tbUsername.Focus();
             }
+
+
         }
     }
 }
