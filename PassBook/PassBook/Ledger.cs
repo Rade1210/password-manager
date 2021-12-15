@@ -26,6 +26,7 @@ namespace PassBook
             tbAccount.Text = "";
             tbIFSC.Text = "";
             tbSearch.Text = "";
+            tbLID.Text = "0";
         }
 
         DataTable dtLedger;
@@ -59,11 +60,25 @@ namespace PassBook
                 string branch = MySqlHelper.EscapeString(tbBranch.Text);
                 string accno = MySqlHelper.EscapeString(tbAccount.Text);
                 string ifsc = MySqlHelper.EscapeString(tbIFSC.Text);
+                string lid = MySqlHelper.EscapeString(tbLID.Text);
 
                 errorProvider1.Clear();
 
-                string sql = "insert into ledger(LNAME, BANK, BRANCH, ACCNO, IFSC) values('" + lname + "'," +
+                string sql; 
+
+                if(lid == "0" )
+                {
+                    sql = "insert into ledger(LNAME, BANK, BRANCH, ACCNO, IFSC) values('" + lname + "'," +
                     "'" + bank + "','" + branch + "','" + accno + "','" + ifsc + "')";
+                }
+
+                else
+                {
+                    sql = "update ledger set LNAME = '" + lname + "', BANK = '" + bank + "', " +
+                    "BRANCH = '" + branch + "', ACCNO = '" + accno + "', IFSC = '" + ifsc + 
+                    "' where LID='"+ lid+ "'";
+                }
+     
 
                 
 
@@ -101,6 +116,19 @@ namespace PassBook
             dv.RowFilter = "LNAME like '%" + tbSearch.Text + "%'";
             dataGridView1.DataSource = dv;
 
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                tbLID.Text = dataGridView1.Rows[e.RowIndex].Cells[0].ToString();
+                tbLname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].ToString();
+                tbBank.Text = dataGridView1.Rows[e.RowIndex].Cells[2].ToString();
+                tbBranch.Text = dataGridView1.Rows[e.RowIndex].Cells[3].ToString();
+                tbAccount.Text = dataGridView1.Rows[e.RowIndex].Cells[4].ToString();
+                tbIFSC.Text = dataGridView1.Rows[e.RowIndex].Cells[5].ToString();
+            }
         }
     }
 }

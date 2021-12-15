@@ -49,6 +49,7 @@ namespace PassBook
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tbLID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,6 +68,7 @@ namespace PassBook
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.tbLID);
             this.splitContainer1.Panel1.Controls.Add(this.label7);
             this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
             this.splitContainer1.Panel1.Controls.Add(this.tbSearch);
@@ -241,10 +243,20 @@ namespace PassBook
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(800, 67);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // tbLID
+            // 
+            this.tbLID.Location = new System.Drawing.Point(637, 150);
+            this.tbLID.Name = "tbLID";
+            this.tbLID.Size = new System.Drawing.Size(100, 25);
+            this.tbLID.TabIndex = 16;
+            this.tbLID.Text = "0";
+            this.tbLID.Visible = false;
             // 
             // Ledger
             // 
@@ -287,5 +299,6 @@ namespace PassBook
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox tbLID;
     }
 }
