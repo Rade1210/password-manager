@@ -29,6 +29,7 @@ namespace PassBook
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(settings));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@ namespace PassBook
             this.tbConfirmPassword = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.errorProviderSettings = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,6 +110,7 @@ namespace PassBook
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update Password";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnClear
             // 
@@ -116,6 +120,11 @@ namespace PassBook
             this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // errorProviderSettings
+            // 
+            this.errorProviderSettings.ContainerControl = this;
             // 
             // settings
             // 
@@ -134,6 +143,7 @@ namespace PassBook
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "settings";
             this.Text = "Change Password";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +160,6 @@ namespace PassBook
         private System.Windows.Forms.TextBox tbConfirmPassword;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ErrorProvider errorProviderSettings;
     }
 }

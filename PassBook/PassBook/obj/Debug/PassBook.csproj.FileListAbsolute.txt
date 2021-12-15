@@ -24,3 +24,4 @@ C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Home.resources
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Ledger.resources
 C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.Transaction.resources
+C:\Users\Rade\Desktop\Fakultet\VPROG\Password Management System\password-manager\PassBook\PassBook\obj\Debug\PassBook.settings.resources
