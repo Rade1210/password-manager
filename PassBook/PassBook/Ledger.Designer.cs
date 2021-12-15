@@ -31,6 +31,7 @@ namespace PassBook
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbLID = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@ namespace PassBook
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tbLID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,8 +90,17 @@ namespace PassBook
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 379;
+            this.splitContainer1.SplitterDistance = 377;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // tbLID
+            // 
+            this.tbLID.Location = new System.Drawing.Point(620, 111);
+            this.tbLID.Name = "tbLID";
+            this.tbLID.Size = new System.Drawing.Size(100, 25);
+            this.tbLID.TabIndex = 16;
+            this.tbLID.Text = "0";
+            this.tbLID.Visible = false;
             // 
             // label7
             // 
@@ -116,7 +125,7 @@ namespace PassBook
             // tbSearch
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearch.Location = new System.Drawing.Point(620, 62);
+            this.tbSearch.Location = new System.Drawing.Point(620, 60);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(146, 25);
             this.tbSearch.TabIndex = 13;
@@ -243,22 +252,13 @@ namespace PassBook
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 67);
+            this.dataGridView1.Size = new System.Drawing.Size(800, 69);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // tbLID
-            // 
-            this.tbLID.Location = new System.Drawing.Point(620, 111);
-            this.tbLID.Name = "tbLID";
-            this.tbLID.Size = new System.Drawing.Size(100, 25);
-            this.tbLID.TabIndex = 16;
-            this.tbLID.Text = "0";
-            this.tbLID.Visible = false;
             // 
             // Ledger
             // 
