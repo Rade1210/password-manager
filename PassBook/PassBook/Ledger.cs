@@ -130,5 +130,50 @@ namespace PassBook
                 tbIFSC.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if(tbLID.Text != "0")
+            {
+
+            if(MessageBox.Show("Are you sure you want to delete the selected record?", "Delete", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    try
+                    {
+ 
+                        string lid = MySqlHelper.EscapeString(tbLID.Text);
+
+                        string sql = "delete from ledger where LID='"+ lid +"'";
+
+                        MySqlCommand cmd = new MySqlCommand(sql, o.con);
+
+                        cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Ledger Details Deleted Successfuly");
+
+                        loadgrid();
+
+                        btnClear_Click(sender, e);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        if (o.con.State == ConnectionState.Open)
+                        {
+                            o.con.Close();
+                        }
+                    }
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Select a record to delete");
+            }
+        }
     }
 }

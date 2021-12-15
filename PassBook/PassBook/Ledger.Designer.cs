@@ -111,6 +111,7 @@ namespace PassBook
             this.btnDelete.TabIndex = 14;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // tbSearch
             // 
@@ -252,7 +253,7 @@ namespace PassBook
             // 
             // tbLID
             // 
-            this.tbLID.Location = new System.Drawing.Point(637, 150);
+            this.tbLID.Location = new System.Drawing.Point(620, 111);
             this.tbLID.Name = "tbLID";
             this.tbLID.Size = new System.Drawing.Size(100, 25);
             this.tbLID.TabIndex = 16;
