@@ -94,5 +94,13 @@ namespace PassBook
         {
             loadgrid();
         }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(dtLedger);
+            dv.RowFilter = "LNAME like '%" + tbSearch.Text + "%'";
+            dataGridView1.DataSource = dv;
+
+        }
     }
 }

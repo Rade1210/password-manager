@@ -93,6 +93,7 @@ namespace PassBook
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(552, 65);
             this.label7.Name = "label7";
@@ -116,6 +117,7 @@ namespace PassBook
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(146, 25);
             this.tbSearch.TabIndex = 13;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             // 
             // btnClear
             // 
