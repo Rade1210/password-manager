@@ -29,6 +29,7 @@ namespace PassBook
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tbTID = new System.Windows.Forms.TextBox();
             this.btnDeleteTransaction = new System.Windows.Forms.Button();
@@ -51,11 +52,13 @@ namespace PassBook
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.errorProviderTransaction = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTransaction)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -131,6 +134,7 @@ namespace PassBook
             this.btnSaveTransaction.TabIndex = 32;
             this.btnSaveTransaction.Text = "Save";
             this.btnSaveTransaction.UseVisualStyleBackColor = true;
+            this.btnSaveTransaction.Click += new System.EventHandler(this.btnSaveTransaction_Click);
             // 
             // tbSearchTransaction
             // 
@@ -288,6 +292,10 @@ namespace PassBook
             this.dataGridView2.Size = new System.Drawing.Size(816, 165);
             this.dataGridView2.TabIndex = 0;
             // 
+            // errorProviderTransaction
+            // 
+            this.errorProviderTransaction.ContainerControl = this;
+            // 
             // Transaction
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -303,6 +311,7 @@ namespace PassBook
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTransaction)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +340,6 @@ namespace PassBook
         private System.Windows.Forms.Button btnClearTransaction;
         private System.Windows.Forms.Button btnSaveTransaction;
         private System.Windows.Forms.TextBox tbTID;
+        private System.Windows.Forms.ErrorProvider errorProviderTransaction;
     }
 }

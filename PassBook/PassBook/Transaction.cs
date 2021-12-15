@@ -58,7 +58,77 @@ namespace PassBook
             da.Fill(dtTrans);
             dataGridView2.DataSource = dtTrans;
 
+        }
 
+        private void btnSaveTransaction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(cbAccount.SelectedIndex == -1)
+                {
+                    errorProviderTransaction.SetError(cbAccount, "Please select an Account Type");
+                    cbAccount.Focus();
+                    return;
+                }
+                if(cbLedger.SelectedIndex == -1)
+                {
+                    errorProviderTransaction.SetError(cbLedger, "Please select a Ledger");
+                    cbLedger.Focus();
+                    return;
+                }
+                if (cbTransType.SelectedIndex == -1)
+                {
+                    errorProviderTransaction.SetError(cbTransType, "Please select a Transaction Type");
+                    cbTransType.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(tbAmount.Text))
+                {
+                    errorProviderTransaction.SetError(tbAmount, "Enter the Amount");
+                    tbAmount.Focus();
+                    return;
+                }
+                errorProviderTransaction.Clear();
+
+                string ttype = MySqlHelper.EscapeString(cbAccount.Text);
+                string tdate = dtpTransaction.Value.ToString("yyyy-MM-dd");
+                string lid = MySqlHelper.EscapeString(cbLedger.SelectedValue.ToString());
+                string trans_type = MySqlHelper.EscapeString(cbTransType.Text);
+                string description = MySqlHelper.EscapeString(tbDescription.Text);
+                string trans_details = MySqlHelper.EscapeString(tbTransactionDetails.Text);
+                string amt = MySqlHelper.EscapeString(tbAmount.Text);
+                string tid = MySqlHelper.EscapeString(tbTID.Text);
+                string cr = "0";
+                string dr = "0";
+                if(ttype == "Credit")
+                {
+                    cr = amt;
+                }
+                else
+                {
+                    dr = amt;
+                }
+                string sql;
+                if(tid == "0")
+                {
+                    sql = "insert into bank_transaction(TTYPE, TDATE, LID, TRANS_TYPE, DESCRIPTION_TEXT," +
+                    "TRANS_DETAILS, CR, DR) values('"+ttype+ "','" + tdate + "','" 
+                    + lid + "','" + trans_type + "','" + description + "','" + trans_details + "','" 
+                    + cr + "','" + dr + "')";
+                }
+                else
+                {
+                    sql = "update bank_transaction set TTYPE='" + ttype + "', TDATE='" + tdate + "'," +
+                    "LID='" + lid + "', TRANS_TYPE='" + trans_type + "',DESCRIPTION_TEXT='" + description +
+                    "',TRANS_DETAILS='" + trans_details + "', CR='" + cr + "',DR='" + dr + "' where TID='" + tid + "'";
+                }
+                o.con.Open();
+                MySqlCommand cmd = new MySqlCommand(sql, o.con);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Transaction details added sucessfully");
+                loadgrid();
+
+            }
         }
     }
 }
