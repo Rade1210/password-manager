@@ -28,6 +28,19 @@ namespace PassBook
             tbSearch.Text = "";
         }
 
+        DataTable dtLedger;
+        public void loadgrid()
+        {
+            string sql = "select * from ledger";
+            MySqlDataAdapter da = new MySqlDataAdapter(sql, o.con);
+            dtLedger = new DataTable();
+            da.Fill(dtLedger);
+            dataGridView1.DataSource = dtLedger;
+
+
+
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -47,6 +60,8 @@ namespace PassBook
                 string accno = MySqlHelper.EscapeString(tbAccount.Text);
                 string ifsc = MySqlHelper.EscapeString(tbIFSC.Text);
 
+                errorProvider1.Clear();
+
                 string sql = "insert into ledger(LNAME, BANK, BRANCH, ACCNO, IFSC) values('" + lname + "'," +
                     "'" + bank + "','" + branch + "','" + accno + "','" + ifsc + "')";
 
@@ -57,6 +72,8 @@ namespace PassBook
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Ledger Details Added Successfuly");
+
+                loadgrid();
 
                 btnClear_Click(sender, e);
             }
@@ -71,6 +88,11 @@ namespace PassBook
                     o.con.Close();
                 }
             }
+        }
+
+        private void Ledger_Load(object sender, EventArgs e)
+        {
+            loadgrid();
         }
     }
 }
