@@ -23,7 +23,7 @@
  IFSC varchar(50)
  );
  
- select * from ledger;
+ select * from ledger l;
  
  insert into ledger(LNAME, BANK, BRANCH, ACCNO, IFSC) value('OTP Hungary', 'OTP Banka', 'OTP Serbia', '123456789', 'ID12101999');
  
@@ -39,7 +39,15 @@
  DR decimal(10,2)
  );
  
- select * from bank_transaction
+ select * from bank_transaction;
+ 
+ describe bank_transaction;
+ 
+ insert into bank_transaction(TID, TTYPE, TDATE, LID, TRANS_TYPE, DESCRIPTION_TEXT, TRANS_DETAILS, CR, DR)
+ values(1, "A type", "2021-12-15", 1, "Type1", "Lorem Ipsum Dolor Sit", "Example details", 100.56, 200.56)
+ 
+ 
+ 
  
  
  

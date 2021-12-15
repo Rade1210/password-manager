@@ -30,6 +30,10 @@ namespace PassBook
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tbTID = new System.Windows.Forms.TextBox();
+            this.btnDeleteTransaction = new System.Windows.Forms.Button();
+            this.btnClearTransaction = new System.Windows.Forms.Button();
+            this.btnSaveTransaction = new System.Windows.Forms.Button();
             this.tbSearchTransaction = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.dtpTransaction = new System.Windows.Forms.DateTimePicker();
@@ -47,10 +51,6 @@ namespace PassBook
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,10 +67,10 @@ namespace PassBook
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnDelete);
-            this.splitContainer1.Panel1.Controls.Add(this.btnClear);
-            this.splitContainer1.Panel1.Controls.Add(this.btnSave);
+            this.splitContainer1.Panel1.Controls.Add(this.tbTID);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDeleteTransaction);
+            this.splitContainer1.Panel1.Controls.Add(this.btnClearTransaction);
+            this.splitContainer1.Panel1.Controls.Add(this.btnSaveTransaction);
             this.splitContainer1.Panel1.Controls.Add(this.tbSearchTransaction);
             this.splitContainer1.Panel1.Controls.Add(this.label8);
             this.splitContainer1.Panel1.Controls.Add(this.dtpTransaction);
@@ -95,6 +95,43 @@ namespace PassBook
             this.splitContainer1.SplitterDistance = 386;
             this.splitContainer1.TabIndex = 0;
             // 
+            // tbTID
+            // 
+            this.tbTID.Location = new System.Drawing.Point(431, 94);
+            this.tbTID.Name = "tbTID";
+            this.tbTID.Size = new System.Drawing.Size(44, 25);
+            this.tbTID.TabIndex = 35;
+            this.tbTID.Text = "0";
+            this.tbTID.Visible = false;
+            // 
+            // btnDeleteTransaction
+            // 
+            this.btnDeleteTransaction.Location = new System.Drawing.Point(327, 342);
+            this.btnDeleteTransaction.Name = "btnDeleteTransaction";
+            this.btnDeleteTransaction.Size = new System.Drawing.Size(63, 27);
+            this.btnDeleteTransaction.TabIndex = 34;
+            this.btnDeleteTransaction.Text = "Delete";
+            this.btnDeleteTransaction.UseVisualStyleBackColor = true;
+            // 
+            // btnClearTransaction
+            // 
+            this.btnClearTransaction.Location = new System.Drawing.Point(258, 342);
+            this.btnClearTransaction.Name = "btnClearTransaction";
+            this.btnClearTransaction.Size = new System.Drawing.Size(63, 27);
+            this.btnClearTransaction.TabIndex = 33;
+            this.btnClearTransaction.Text = "Clear";
+            this.btnClearTransaction.UseVisualStyleBackColor = true;
+            this.btnClearTransaction.Click += new System.EventHandler(this.btnClearTransaction_Click);
+            // 
+            // btnSaveTransaction
+            // 
+            this.btnSaveTransaction.Location = new System.Drawing.Point(190, 342);
+            this.btnSaveTransaction.Name = "btnSaveTransaction";
+            this.btnSaveTransaction.Size = new System.Drawing.Size(62, 27);
+            this.btnSaveTransaction.TabIndex = 32;
+            this.btnSaveTransaction.Text = "Save";
+            this.btnSaveTransaction.UseVisualStyleBackColor = true;
+            // 
             // tbSearchTransaction
             // 
             this.tbSearchTransaction.Location = new System.Drawing.Point(431, 53);
@@ -113,16 +150,18 @@ namespace PassBook
             // 
             // dtpTransaction
             // 
-            this.dtpTransaction.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTransaction.Location = new System.Drawing.Point(622, 53);
+            this.dtpTransaction.CustomFormat = "dd-MM-yyyy hh:mm:ss";
+            this.dtpTransaction.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTransaction.Location = new System.Drawing.Point(625, 53);
             this.dtpTransaction.Name = "dtpTransaction";
-            this.dtpTransaction.Size = new System.Drawing.Size(99, 25);
+            this.dtpTransaction.Size = new System.Drawing.Size(153, 25);
             this.dtpTransaction.TabIndex = 29;
+            this.dtpTransaction.Value = new System.DateTime(2021, 12, 15, 13, 14, 7, 0);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(579, 56);
+            this.label7.Location = new System.Drawing.Point(582, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 17);
             this.label7.TabIndex = 28;
@@ -162,6 +201,10 @@ namespace PassBook
             // cbTransType
             // 
             this.cbTransType.FormattingEnabled = true;
+            this.cbTransType.Items.AddRange(new object[] {
+            "Received",
+            "Cheque",
+            "RTGS\\IMPS"});
             this.cbTransType.Location = new System.Drawing.Point(153, 137);
             this.cbTransType.Name = "cbTransType";
             this.cbTransType.Size = new System.Drawing.Size(180, 25);
@@ -178,6 +221,9 @@ namespace PassBook
             // cbAccount
             // 
             this.cbAccount.FormattingEnabled = true;
+            this.cbAccount.Items.AddRange(new object[] {
+            "Credit",
+            "Debit"});
             this.cbAccount.Location = new System.Drawing.Point(153, 53);
             this.cbAccount.Name = "cbAccount";
             this.cbAccount.Size = new System.Drawing.Size(180, 25);
@@ -242,42 +288,6 @@ namespace PassBook
             this.dataGridView2.Size = new System.Drawing.Size(816, 165);
             this.dataGridView2.TabIndex = 0;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(190, 342);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(62, 27);
-            this.btnSave.TabIndex = 32;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(258, 342);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(63, 27);
-            this.btnClear.TabIndex = 33;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(327, 342);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(63, 27);
-            this.btnDelete.TabIndex = 34;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(431, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(44, 25);
-            this.textBox1.TabIndex = 35;
-            this.textBox1.Text = "0";
-            this.textBox1.Visible = false;
-            // 
             // Transaction
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -286,6 +296,7 @@ namespace PassBook
             this.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Transaction";
             this.Text = "Transaction Details";
+            this.Load += new System.EventHandler(this.Transaction_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -316,9 +327,9 @@ namespace PassBook
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnDeleteTransaction;
+        private System.Windows.Forms.Button btnClearTransaction;
+        private System.Windows.Forms.Button btnSaveTransaction;
+        private System.Windows.Forms.TextBox tbTID;
     }
 }
