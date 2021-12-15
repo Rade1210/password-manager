@@ -87,6 +87,7 @@ namespace PassBook
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.Size = new System.Drawing.Size(153, 20);
             this.tbCurrentPassword.TabIndex = 4;
+            this.tbCurrentPassword.UseSystemPasswordChar = true;
             // 
             // tbNewPassword
             // 
@@ -94,6 +95,7 @@ namespace PassBook
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.Size = new System.Drawing.Size(153, 20);
             this.tbNewPassword.TabIndex = 5;
+            this.tbNewPassword.UseSystemPasswordChar = true;
             // 
             // tbConfirmPassword
             // 
@@ -101,6 +103,7 @@ namespace PassBook
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.Size = new System.Drawing.Size(153, 20);
             this.tbConfirmPassword.TabIndex = 6;
+            this.tbConfirmPassword.UseSystemPasswordChar = true;
             // 
             // btnUpdate
             // 

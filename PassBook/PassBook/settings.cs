@@ -61,7 +61,6 @@ namespace PassBook
                 {
                     if(newPass == confirmPass)
                     {
-                        o.con.Open();
                         sql = "update admin_logs set upass='" + newPass + "' where ID=1";
                         MySqlCommand cmd = new MySqlCommand(sql, o.con);
                         cmd.ExecuteNonQuery();

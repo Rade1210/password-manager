@@ -16,7 +16,7 @@ namespace PassBook
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Transaction());
+            Application.Run(new settings());
         }
     }
 }
